@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {{ form_start(form, {
+        action: path('app_login'),
+        name: 'login_type'
+    }) }}
+    {{ form_label(form._username) }}
+    {{ form_widget(form._username) }}
+
+    {{ form_label(form._password) }}
+    {{ form_widget(form._password) }}
+
+    <button type="submit" class="btn btn-success">Se connecter</button>
+    {{ form_end(form) }}
+{% endblock %}
