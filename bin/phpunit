@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+
+// bin/phpunit
+if (!file_exists(__DIR__.'/../vendor/phpunit/phpunit/phpunit')) {
+    echo "PHPUnit is not installed. Please run: composer install\n";
+    exit(1);
+}
+
+require __DIR__.'/../vendor/phpunit/phpunit/phpunit';
