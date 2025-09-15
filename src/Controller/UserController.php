@@ -29,7 +29,7 @@ final class UserController extends AbstractController
     }
 
     #[Route('/users', name: 'app_user_list')]
-    public function listAction(UserRepository $userRepository): Response
+    public function list(UserRepository $userRepository): Response
     {
         $users = $userRepository->findAll();
 
