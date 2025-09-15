@@ -67,6 +67,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * A visual identifier that represents this user.
+     * 
+     * @return non-empty-string
      *
      * @see UserInterface
      */
