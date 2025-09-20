@@ -46,14 +46,17 @@ final class TaskController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Assigne l'utilisateur connecté comme auteur
-            $task->setAuthor($this->getUser());
+            if ($this->getUser()) { //Ajouté pour faire plaisir à SymfonyInsight. Pas sûr que c'est nécessaire
+                $task->setAuthor($this->getUser());
 
-            $this->entityManager->persist($task);
-            $this->entityManager->flush();
+                $this->entityManager->persist($task);
+                $this->entityManager->flush();
 
-            $this->addFlash('success', 'La tâche a bien été ajoutée.');
+                $this->addFlash('success', 'La tâche a bien été ajoutée.');
 
-            return $this->redirectToRoute('app_task_list');
+                return $this->redirectToRoute('app_task_list');
+            }
+        
         }
 
         return $this->render('task/create.html.twig', [
