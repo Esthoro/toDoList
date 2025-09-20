@@ -81,7 +81,7 @@ final class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Hash le mot de passe uniquement si modifié
-            $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
+            $hashedPassword = $this->passwordHasher->hashPassword($user, (string) $user->getPassword());
             $user->setPassword($hashedPassword);
 
             $this->entityManager->flush();
