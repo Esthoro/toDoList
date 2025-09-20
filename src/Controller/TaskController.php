@@ -120,7 +120,7 @@ final class TaskController extends AbstractController
             throw $this->createAccessDeniedException('Vous ne pouvez pas supprimer cette tâche.');
         }
 
-        $submittedToken = $request->request->get('_token');
+        $submittedToken = (string) $request->request->get('_token') ??  null;
 
         if (!$this->isCsrfTokenValid('delete_task_' . $task->getId(), $submittedToken)) {
             throw $this->createAccessDeniedException('Token CSRF invalide.');
