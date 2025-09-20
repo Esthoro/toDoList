@@ -49,7 +49,7 @@ final class UserController extends AbstractController
 
             // Récupère le rôle choisi dans le champ “role”
             //Validation etc. manuelle à cause du micmac string/array
-            $selectedRole = $form->get('roles')->getData();
+            $selectedRole = (string) $form->get('roles')->getData();
             if (!$selectedRole) {
                 $this->addFlash('error', 'Vous devez choisir un rôle pour l’utilisateur.');
                 return $this->redirectToRoute('app_user_create');
