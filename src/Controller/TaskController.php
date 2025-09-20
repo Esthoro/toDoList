@@ -46,7 +46,7 @@ final class TaskController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Assigne l'utilisateur connecté comme auteur
-            if ($this->getUser()) { //Ajouté pour faire plaisir à SymfonyInsight. Pas sûr que c'est nécessaire
+            if ($this->getUser() instanceof \App\Entity\User) { //Ajouté pour faire plaisir à SymfonyInsight. Pas sûr que c'est nécessaire
                 $task->setAuthor($this->getUser());
 
                 $this->entityManager->persist($task);
