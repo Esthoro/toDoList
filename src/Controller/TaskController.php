@@ -87,7 +87,7 @@ final class TaskController extends AbstractController
     #[Route('/tasks/{id}/toggle', name: 'app_task_toggle', methods: ['POST'])]
     public function toggle(Request $request, Task $task): Response
     {
-        $submittedToken = $request->request->get('_token');
+        $submittedToken = (string) $request->request->get('_token') ?? null;
 
         if (!$this->isCsrfTokenValid('toggle_task_' . $task->getId(), $submittedToken)) {
             throw $this->createAccessDeniedException('Token CSRF invalide.');
