@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ca4b92f9c6090124ab0d4f329054524",
+    "content-hash": "07546b31646c106161803c66e059c1ae",
     "packages": [
         {
             "name": "composer/semver",
@@ -7607,8 +7607,11 @@
                 "doctrine/mongodb-odm": "^2.5",
                 "doctrine/mongodb-odm-bundle": "^4.4 || ^5.0",
                 "doctrine/orm": "^2.14 || ^3.1.0",
+                "monolog/monolog": "^1.25.1 || ^2.0 || ^3.0",
                 "phpunit/phpunit": "^10.5.11 || ^11.0.4 || ^12.0.0",
                 "symfony/doctrine-bridge": "^5.4 || ^6.3 || ^7.0",
+                "symfony/monolog-bridge": "^5.4 || ^6.3 || ^7.0",
+                "symfony/monolog-bundle": "^3.2",
                 "theofidry/alice-data-fixtures": "^1.5.2"
             },
             "suggest": {
