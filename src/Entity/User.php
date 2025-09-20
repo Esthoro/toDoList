@@ -22,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180)]
     #[Assert\NotBlank(message: "L'email ne peut pas être vide.")]
     #[Assert\Email(message: "L'email '{{ value }}' n'est pas un email valide.")]
-    private ?string $email = null;
+    private string $email;
 
     /**
      * @var list<string> The user roles
@@ -35,11 +35,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "Le mot de passe ne peut pas être vide.")]
-    private ?string $password = null;
+    private string $password;
 
     #[ORM\Column(length: 25)]
     #[Assert\NotBlank(message: "Le pseudo ne peut pas être vide.")]
-    private ?string $username = null;
+    private string $username;
 
     public function setId(int $id): static
     {
@@ -67,8 +67,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * A visual identifier that represents this user.
-     * 
-     * @return non-empty-string
      *
      * @see UserInterface
      */
