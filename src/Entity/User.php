@@ -22,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180)]
     #[Assert\NotBlank(message: "L'email ne peut pas être vide.")]
     #[Assert\Email(message: "L'email '{{ value }}' n'est pas un email valide.")]
-    private string $email;
+    private ?string $email = null;
 
     /**
      * @var list<string> The user roles
@@ -35,11 +35,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "Le mot de passe ne peut pas être vide.")]
-    private string $password;
+    private ?string $password = null;
 
     #[ORM\Column(length: 25)]
     #[Assert\NotBlank(message: "Le pseudo ne peut pas être vide.")]
-    private string $username;
+    private ?string $username = null;
 
     public function setId(int $id): static
     {
@@ -67,6 +67,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * A visual identifier that represents this user.
+     *
+     * @return non-empty-string
      *
      * @see UserInterface
      */
@@ -118,7 +120,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __serialize(): array
     {
         $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', (string) $this->password);
+        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
 
         return $data;
     }
