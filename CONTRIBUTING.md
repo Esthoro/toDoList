@@ -11,6 +11,7 @@ Thank you for your interest in contributing to **ToDo & Co**! This document expl
 1. **Create a feature branch**  
 ```bash
 git checkout -b feature/your_feature_name
+```
 
 2. **Develop and test locally**
 - Implement your feature or fix.
@@ -26,6 +27,7 @@ git checkout -b feature/your_feature_name
 ```bash
 git add .
 git commit -m "Add feature XYZ: short description"
+```
 
 5. **Open a Pull Request**
 - Submit a PR for code review.
@@ -44,6 +46,3 @@ git commit -m "Add feature XYZ: short description"
 - Audit performance using tools like SymfonyProfiler.
 
 By following these guidelines, you help maintain the quality, security, and performance of ToDo & Co. Thank you for your contribution!
-
-yaml
-Copy code
