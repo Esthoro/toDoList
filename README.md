@@ -20,12 +20,19 @@ Documentation: Clear instructions for authentication, project architecture, and 
 
 ## Installation
 git clone https://github.com/Esthoro/toDoList.git
+
 cd todolist
+
 composer install
+
 cp .env .env.local   # configure DB and env variables
+
 php bin/console doctrine:database:create
+
 php bin/console doctrine:migrations:migrate
+
 php bin/console doctrine:fixtures:load  # optional
+
 symfony server:start
 
 Access the app at http://127.0.0.1:8000
