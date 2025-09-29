@@ -80,6 +80,16 @@ final class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            // Récupère le rôle choisi dans le champ “role”
+            //Validation etc. manuelle à cause du micmac string/array
+            $selectedRole = $form->get('roles')->getData();
+            if (!$selectedRole) {
+                $this->addFlash('error', 'Vous devez choisir un rôle pour l’utilisateur.');
+                return $this->redirectToRoute('app_user_create');
+            }
+            $user->setRoles([$selectedRole]);
+            
             // Hash le mot de passe uniquement si modifié
             $hashedPassword = $this->passwordHasher->hashPassword($user, (string) $user->getPassword());
             $user->setPassword($hashedPassword);
